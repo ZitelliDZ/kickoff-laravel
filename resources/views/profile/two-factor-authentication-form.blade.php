@@ -1,14 +1,14 @@
 <x-action-section>
-    <x-slot name="title">
+    <x-slot name="title" class="text-lg font-medium text-gray-900 dark:text-white">
         {{ __('Two Factor Authentication') }}
     </x-slot>
 
-    <x-slot name="description">
+    <x-slot name="description" class="text-sm text-gray-600 dark:text-gray-400">
         {{ __('Add additional security to your account using two factor authentication.') }}
     </x-slot>
 
     <x-slot name="content">
-        <h3 class="text-lg font-medium text-gray-900">
+        <h3 class="text-lg font-medium text-gray-600 dark:text-gray-400">
             @if ($this->enabled)
                 @if ($showingConfirmation)
                     {{ __('Finish enabling two factor authentication.') }}
@@ -20,13 +20,12 @@
             @endif
         </h3>
 
-        <div class="mt-3 max-w-xl text-sm text-gray-600">
+        <div class="mt-3 max-w-xl text-sm  text-gray-600 dark:text-gray-400">
             <p>
                 {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
             </p>
         </div>
 
-        {{ var_dump($showingQrCode) }}
         @if ($this->enabled)
             @if ($showingQrCode)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
@@ -80,9 +79,12 @@
         <div class="mt-5">
             @if (! $this->enabled)
                 <x-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-button type="button" wire:loading.attr="disabled">
+
+                    <button
+                    wire:loading.attr="disabled"
+                    type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:active:bg-gray-800 dark:focus:ring-gray-500 dark:ring-gray-500 dark:ring-offset-gray-900 dark:disabled:opacity-50">
                         {{ __('Enable') }}
-                    </x-button>
+                    </button>
                 </x-confirms-password>
             @else
                 @if ($showingRecoveryCodes)

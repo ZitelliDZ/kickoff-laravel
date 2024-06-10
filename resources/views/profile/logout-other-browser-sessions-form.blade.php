@@ -1,14 +1,14 @@
 <x-action-section>
-    <x-slot name="title">
+    <x-slot name="title" class="text-lg font-medium text-gray-900 dark:text-white">
         {{ __('Browser Sessions') }}
     </x-slot>
 
-    <x-slot name="description">
+    <x-slot name="description"  class="text-sm text-gray-600 dark:text-gray-400">
         {{ __('Manage and log out your active sessions on other browsers and devices.') }}
     </x-slot>
 
-    <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
+    <x-slot name="content" >
+        <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400" >
             {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
         </div>
 
